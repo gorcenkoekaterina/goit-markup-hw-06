@@ -230,12 +230,15 @@ button {
     height: 100%;
     background-color: #fff;
 
+z-index: 999;
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
         visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 .mobile-menu.is-open {
@@ -330,6 +333,8 @@ button {
                 flex-direction: column;
                 gap: 52px;
                 margin-bottom: 28px;
+                list-style: none;
+                font-style: normal;
 
     }
 
@@ -400,8 +405,11 @@ button {
     }
     
 
-
-
+@media screen and (min-width: 320px) {
+    .section-one {
+    display: none;
+ }
+}
 
 
 @media screen and (min-width: 768px) {
@@ -415,11 +423,10 @@ button {
 
 .section-one {
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/img-name.jpg);
-    max-width: 1440px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 188px 0;
+    padding: 96px 0;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -432,16 +439,15 @@ button {
 }
 
 .title-section-one {
-    max-width: 496px;
     font-weight: 700;
     margin: 0 auto 48px;
-    font-size: 56px;
+    font-size: 36px;
     text-align: center;
     max-width: 496px;
     line-height: 1.07;
     letter-spacing: 0.02em;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 72px;
 }
 
 .button-primary {
@@ -464,8 +470,41 @@ button {
     background-color: #404BBF;
 }
 
+@media screen and (min-width: 320px) {
+    .section-one {
+            width: 320px;
+        }
+}
+
+@media screen and (min-width: 768px) {
+    .section-one {
+        width: 768px;}
+
+    .title-section-one {
+        font-size: 36px;
+        margin-bottom: 72px;}
+
+        .section-one {
+            padding: 122px 0;
+    }
+}
 
 
+@media screen and (min-width: 1158px) {
+    .section-one {
+            width: 1140px;
+        }
+
+        .title-section-one {
+            font-size: 56px;
+            margin-bottom: 48px;
+        }
+
+          .section-one {
+              padding: 188px 0;
+          }
+          
+}
 
 
 
@@ -534,7 +573,7 @@ button {
     .list-section-two {
             display: flex;
             flex-direction: row;
-            gap: 24px;
+            gap: 72px 24px;
             padding: 0;
             margin: 0;
             list-style: none;
@@ -705,7 +744,7 @@ button {
 @media screen and (min-width: 768px) {
     .list-section-three {
             display: flex;
-            gap: 32px;
+            gap: 64px 24px;
             flex-wrap: wrap;
             flex-direction: row;
             
@@ -864,12 +903,22 @@ button {
 }
 
 .footer-container {
+    width: 100%;
+    gap: 72px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: baseline;
-    gap: 80px;
     align-content: flex-start;
+}
+
+.footer-branding,
+.footer-about,
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .footer-branding {
@@ -910,13 +959,21 @@ button {
 }
 
 .footer-social {
-    gap: 16px;
+    display: flex;
+        justify-content: center;
+        gap: 16px;
+        padding: 0;
+        list-style: none;
 }
 
 .footer-about {
+    width: 208px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
 .page-footer-text {
@@ -956,11 +1013,8 @@ button {
 }
 
 
-.footer-form {
-    margin-top: 80px;
-}
-
 .footer-form-text {
+    text-align: center;
     margin-bottom: 16px;
     font-weight: 500;
     font-size: 16px;
@@ -971,10 +1025,14 @@ button {
 
 
 .form-foot {
+    width: 288px;
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
     flex-direction: row;
+    align-content: center;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
 .footer-form-label {
@@ -1036,16 +1094,103 @@ button {
 
 
 @media screen and (min-width: 768px) {
-    .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 80px; 
-    align-content: flex-start;
-}
-}
+            .footer-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                text-align: left;
+                gap: 72px 24px;
+                width: 100%;
+            }
+    
+            .footer-branding,
+            .footer-about,
+            .footer-form {
+                flex: 1;
+                max-width: none;
+                margin-right: 0;
+            }
+        .footer-about {
+        flex-direction: column; 
+        }
 
+    .footer-logo {
+        justify-content: flex-start;
+    }
+            .footer-form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            .form-foot {
+                flex-wrap: nowrap;
+                gap: 8px;
+                justify-content: flex-start;
+            }
+    
+            .input_email {
+                padding: 8px;
+                flex: 1;
+                width: auto;
+            }
+    
+            .btn_submit {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                padding: 8px 16px;
+            }
+        }
+    
+
+
+
+@media screen and (min-width: 1158px) {
+        .footer-container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+            gap: 0;
+            padding: 0 15px;
+        }
+
+        .footer-branding,
+        .footer-about,
+        .footer-form {
+            flex: 0 0 auto;
+        }
+
+        .footer-branding {
+            margin-right: 120px;
+        }
+
+        .footer-about {
+            margin-right: 80px;
+        }
+
+        .footer-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-foot {
+            flex-wrap: nowrap;
+            gap: 24px;
+            justify-content: flex-start;
+        }
+
+        .input_email {
+            width: 264px;
+            padding-left: 16px;
+        }
+
+        .btn_submit {
+            min-width: 165px;
+        }
+    }
 
 
 /* modal */
